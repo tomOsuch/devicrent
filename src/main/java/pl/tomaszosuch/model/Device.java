@@ -21,7 +21,7 @@ public class Device {
     @JoinColumn(name = "category_id")
     private Category category;
     @ManyToMany
-    @JoinTable(name = "device_costomer",
+    @JoinTable(name = "device_costomers",
         joinColumns = {@JoinColumn(name = "device_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "customer_id", referencedColumnName = "id")})
     private List<Customer> customers = new ArrayList<>();
@@ -83,6 +83,11 @@ public class Device {
 
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
+    }
+
+    public void addCustomer(Customer customer){
+        customers.add(customer);
+        customer.getRentDevices().add(this);
     }
 
     @Override

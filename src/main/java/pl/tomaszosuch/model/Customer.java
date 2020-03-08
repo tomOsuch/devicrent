@@ -20,7 +20,7 @@ public class Customer {
     private String pesel;
     @Column(name = "id_number",length = 11)
     private String idNumber;
-    @ManyToMany(mappedBy = "customer")
+    @ManyToMany(mappedBy = "customers")
     private List<Device> rentDevices = new ArrayList<>();
 
     public Customer() {
