@@ -3,17 +3,17 @@ package pl.tomaszosuch;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import pl.tomaszosuch.dao.DeviceDao;
 import pl.tomaszosuch.model.Category;
 import pl.tomaszosuch.model.Customer;
 import pl.tomaszosuch.model.Device;
+import pl.tomaszosuch.repository.DeviceRepository;
 
 @SpringBootApplication
 public class DevicrentApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx = SpringApplication.run(DevicrentApplication.class, args);
-        DeviceDao deviceDao = ctx.getBean(DeviceDao.class);
+        DeviceRepository deviceRepository = ctx.getBean(DeviceRepository.class);
 
         Device device = new Device();
         device.setName("Wiertarka test");
@@ -34,7 +34,7 @@ public class DevicrentApplication {
         device.setCategory(category);
         device.addCustomer(customer);
 
-        deviceDao.save(device);
+        deviceRepository.save(device);
     }
 
 }
