@@ -1,7 +1,7 @@
-package pl.tomaszosuch.repository;
+package pl.tomaszosuch.components.customer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.tomaszosuch.model.Customer;
+import pl.tomaszosuch.components.customer.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 }

@@ -1,4 +1,7 @@
-package pl.tomaszosuch.model;
+package pl.tomaszosuch.components.device;
+
+import pl.tomaszosuch.components.category.Category;
+import pl.tomaszosuch.components.customer.Customer;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,10 +20,10 @@ public class Device {
     private String description;
     private int quantity;
     private double price;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "category_id")
     private Category category;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "device_costomers",
         joinColumns = {@JoinColumn(name = "device_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "customer_id", referencedColumnName = "id")})

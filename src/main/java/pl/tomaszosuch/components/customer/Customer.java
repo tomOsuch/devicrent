@@ -1,4 +1,6 @@
-package pl.tomaszosuch.model;
+package pl.tomaszosuch.components.customer;
+
+import pl.tomaszosuch.components.device.Device;
 
 import javax.persistence.*;
 import java.util.ArrayList;
